@@ -1,0 +1,47 @@
+:root {
+    /* --primary: #081225; */
+    --primary: #162e5b;
+    --primary-light: #162e5b;
+    --secondary: #ef6f7f;
+    --secondary-light: #e898a6;
+    /* Background of Sidebar */
+    --headline: #f0f3f4;
+     /*Background od Card  */
+    --main: #ffffff;  
+    --tertiary: #4fc194;
+    --ternary: #cccccc;
+    --ternary-light: rgb(153,159,187, 0.85);
+  }
+  *{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+h1, h2, h3, h4, h5, h6, span,label {
+  font-family: var(--secondary-font);
+  color: var(--primary);
+}
+
+p {
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+}
+body{
+  background-color: var(--primary-light);
+}
+a{
+  text-decoration: none;
+}
+ul,li{
+  list-style: none;
+}
+ul{
+  margin: 0;
+  padding:0;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
