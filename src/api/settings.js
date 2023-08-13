@@ -1,7 +1,7 @@
 // Create an array of base URLs
 export const multipleApiBaseUrls = [
   "https://quizmine-backend.vercel.app",
-  "http://localhost:3000",
+  "http://localhost:5000",
 ];
 
 // Determine the index of the base URL to use based on the environment
