@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { loginAdmin } from "../../api/AuthenticationApi";
 import { useSharedData } from "../../functions/SharedDataContext";
+import Loader from "../utils/Loader";
 
 function LoginForm() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isLogin, setIsLogin } = useSharedData();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ function LoginForm() {
       password: password,
     };
     try {
+      setIsLoading(true); // Start loading
       const response = await loginAdmin(data);
       if (response.ok) {
         const { message, data } = await response.json();
@@ -30,6 +33,8 @@ function LoginForm() {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setIsLoading(false); // End loading
     }
   };
   console.log("Handle Logout", isLogin);
@@ -90,8 +95,9 @@ function LoginForm() {
             <button
               className="mt-2 border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl w-full"
               type="submit"
+              disabled={isLoading}
             >
-              Login
+              {isLoading ? <Loader /> : "Log In"}
             </button>
           </div>
         </form>

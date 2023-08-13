@@ -3,11 +3,13 @@ import { subjects } from "../../data/Data";
 import { useState } from "react";
 import { addSkill } from "../../api/SkillApi";
 import toast from "react-hot-toast";
+import Loader from "../utils/Loader";
 
 function AddChapters() {
   const [className, setClassName] = useState("");
   const [subject, setSubject] = useState("");
   const [chapter, setChapter] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ function AddChapters() {
     };
     try {
       const response = await addSkill(data);
+      setIsLoading(true); // Start loading
       if (response.ok) {
         const { message, error_code } = await response.json();
         if (error_code === 0) {
@@ -28,6 +31,8 @@ function AddChapters() {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setIsLoading(false); // End loading
     }
     setChapter("");
   };
@@ -64,11 +69,16 @@ function AddChapters() {
           value={chapter}
           onChange={(e) => setChapter(e.target.value)}
         />
-        <input
-          className="border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl"
-          type="submit"
-          value="Submit"
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <input
+            className="border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl"
+            type="submit"
+            value="Submit"
+            disabled={isLoading}
+          />
+        )}
       </form>
     </div>
   );
