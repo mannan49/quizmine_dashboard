@@ -1,16 +1,39 @@
 import { useState } from "react";
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BiSolidDashboard } from "react-icons/bi";
+import { BsFillClipboardCheckFill } from "react-icons/bs";
+import { BsPencilFill } from "react-icons/bs";
+import { BsFillFilePdfFill } from "react-icons/bs";
+import { FaUsers } from "react-icons/fa";
+import { BiLogOutCircle } from "react-icons/bi";
+import { BiWorld } from "react-icons/bi";
+import { BsDatabaseAdd } from "react-icons/bs";
+import { useSharedData } from "../../functions/SharedDataContext";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isLogin, setIsLogin } = useSharedData();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    // Update the login state
+    setIsLogin(false);
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="bg-gray-900 text-white fixed top-0 left-0 w-full p-4">
+    <nav className="absolute bg-gray-900 text-white top-0 left-0 w-full p-4">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="text-xl font-semibold">Parvaz</div>
+        <div className="flex items-center mb-2 ml-2">
+          <BiWorld className="text-2xl" />
+          <span className="text-white font-bold text-lg ml-2 ">Parvaz</span>
+        </div>
         <div className="lg:hidden">
           {/* Hamburger Icon */}
           <button
@@ -37,32 +60,63 @@ const Navbar = () => {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } fixed top-0 right-0 h-full w-1/2 bg-gray-900 p-4 transition-transform duration-300 ease-in-out transform z-50`}
       >
-        <ul className="space-y-4">
-          <li>
-            <a
-              href="#"
-              className="text-white hover:text-gray-300"
-              onClick={toggleMobileMenu}
+        <div className="h-[80vh] grid grid-rows-[auto,auto]">
+          <div>
+            <ul className="space-y-6 mt-4 px-2">
+              <li>
+                <Link to="/" className="flex items-center gap-4">
+                  <BiSolidDashboard />
+                  <span className="text-white">Dashboard</span>
+                </Link>
+              </li>
+              <li>
+                <NavLink to="/skills" className="flex items-center gap-4">
+                  <BsFillClipboardCheckFill />
+                  <span className="text-white">Add Chapters</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/mcqs" className="flex items-center gap-4">
+                  <BsDatabaseAdd />
+                  <span className="text-white">Add MCQs</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/edit" className="flex items-center gap-4">
+                  <BsPencilFill />
+                  <span className="text-white">Edit MCQs</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/" className="flex items-center gap-4">
+                  <BsFillFilePdfFill />
+                  <span className="text-white">PDF Notes</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/users" className="flex items-center gap-4">
+                  <FaUsers />
+                  <span className="text-white">Users</span>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className="px-4 flex flex-col-reverse">
+            <NavLink
+              to="/login"
+              onClick={handleLogout}
+              className="flex items-center gap-4"
             >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="text-white hover:text-gray-300"
-              onClick={toggleMobileMenu}
-            >
-              Contact
-            </a>
-          </li>
-          {/* Add more menu items as needed */}
-        </ul>
+              <BiLogOutCircle />
+              <button>Logout</button>
+            </NavLink>
+          </div>
+        </div>
       </div>
       {/* Dark Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-40"
+          className="fixed inset-0 bg-black opacity-50"
           onClick={toggleMobileMenu}
         ></div>
       )}

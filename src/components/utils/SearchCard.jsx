@@ -5,7 +5,7 @@ import TodayDate from "./TodaysDate";
 const SearchCard = () => {
   return (
     <div className="bg-main border-blue-500 px-10 py-3 mt-16 lg:mt-0  rounded-xl lg:flex justify-between">
-      <div class="relative flex items-center  lg:w-1/3 ">
+      <div class="relative flex items-center lg:w-1/3 z-index">
         <input
           type="text"
           placeholder="Search..."
