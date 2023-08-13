@@ -5,7 +5,7 @@ export const SharedDataContext = createContext();
 export const SharedDataProvider = ({ children }) => {
   const [chapter, setChapter] = useState("");
   const [filteredChapters, setFilteredChapters] = useState([]);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   return (
     <SharedDataContext.Provider
