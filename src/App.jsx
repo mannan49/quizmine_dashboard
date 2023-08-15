@@ -12,6 +12,7 @@ import DisplayMcqsPage from "./pages/DisplayMcqsPage";
 import UpdateMcqPage from "./pages/UpdateMcqPage";
 import { SharedDataProvider } from "./functions/SharedDataContext";
 import ProtectedRoute from "./functions/ProtectedRoute"; // Import the adjusted ProtectedRoute component
+import PdfPage from "./pages/PdfPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/update-mcq/:id" element={<UpdateMcqPage />} />
             <Route path="/skills" element={<AddSkillsPage />} />
             <Route path="/users" element={<UsersPage />} />
+            <Route path="/pdf" element={<PdfPage />} />
           </Route>
         </Routes>
       </div>

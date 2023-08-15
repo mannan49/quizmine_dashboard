@@ -1,25 +1,59 @@
 import { classes } from "../../data/Data";
 import { subjects } from "../../data/Data";
 import { useState } from "react";
-import { addSkill } from "../../api/SkillApi";
+import { getAllSkills } from "../../api/SkillApi";
 import toast from "react-hot-toast";
 import Loader from "../utils/Loader";
+import { useSharedData } from "../../functions/SharedDataContext";
+import { useEffect } from "react";
+import { addNotes } from "../../api/NotesApi";
 
-function AddChapters() {
+function AddNotes() {
   const [className, setClassName] = useState("");
   const [subject, setSubject] = useState("");
-  const [chapter, setChapter] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [wholeData, setWholeData] = useState([]);
+  const [pdfFileName, setPdfFileName] = useState("");
+  const [githubRepo, setGithubRepo] = useState("");
+  const { chapter, setChapter, filteredChapters, setFilteredChapters } =
+    useSharedData();
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      console.log("Calling Get All Skills");
+      try {
+        const response = await getAllSkills();
+        if (response.ok) {
+          const data = await response.json();
+          setWholeData(data);
+        }
+      } catch (error) {
+        toast.error(error.message);
+      }
+    };
+    fetchSkills();
+  }, []);
+  useEffect(() => {
+    const filteredChapters = wholeData.filter((value, index) => {
+      return value.class === className && value.subject === subject;
+    });
+    setFilteredChapters(filteredChapters);
+    if (filteredChapters.length > 0) {
+      setChapter(filteredChapters[0].chapter);
+    }
+  }, [className, subject]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      class: className,
+      className: className,
       subject: subject,
-      chapter: chapter,
+      skill: chapter,
+      githubRepo: githubRepo,
+      pdfFileName: pdfFileName,
     };
     try {
-      const response = await addSkill(data);
+      const response = await addNotes(data);
       setIsLoading(true); // Start loading
       if (response.ok) {
         const { message, error_code } = await response.json();
@@ -34,13 +68,13 @@ function AddChapters() {
     } finally {
       setIsLoading(false); // End loading
     }
-    setChapter("");
+    setPdfFileName("");
   };
   return (
     <div className="bg-main rounded-lg max-w-full mt-20 px-1.5 lg:px-8 py-4 m-auto">
       <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
         <h1 className="text-primary font-bold text-center text-2xl">
-          Add Chapter in Database
+          Add Notes in Database
         </h1>
         <select
           name="classes-dropdown"
@@ -62,12 +96,33 @@ function AddChapters() {
             return <option value={subject.subject}>{subject.subject}</option>;
           })}
         </select>
+        <select
+          name="chapters-dropdown"
+          className="border-ternary_light border-solid border-2 rounded-full text-sm lg:text-lg px-8 py-1 focus:outline-none focus:border-primary"
+          onChange={(e) => setChapter(e.target.value)}
+        >
+          {filteredChapters.map((singleObject, index) => {
+            return (
+              <option value={singleObject.chapter}>
+                {singleObject.chapter}
+              </option>
+            );
+          })}
+        </select>
+
         <input
           type="text"
-          placeholder="Enter Chapter's Name"
+          placeholder="Enter GitHub Repo's Name"
           className="border-ternary_light border-solid border-2 rounded-full px-8 py-1 focus:outline-none focus:border-gray-300"
-          value={chapter}
-          onChange={(e) => setChapter(e.target.value)}
+          value={githubRepo}
+          onChange={(e) => setGithubRepo(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter PDF File's Name"
+          className="border-ternary_light border-solid border-2 rounded-full px-8 py-1 focus:outline-none focus:border-gray-300"
+          value={pdfFileName}
+          onChange={(e) => setPdfFileName(e.target.value)}
         />
         {isLoading ? (
           <Loader />
@@ -84,4 +139,4 @@ function AddChapters() {
   );
 }
 
-export default AddChapters;
+export default AddNotes;

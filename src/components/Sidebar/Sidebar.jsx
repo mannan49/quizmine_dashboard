@@ -59,7 +59,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" className="flex items-center gap-4">
+              <NavLink to="/pdf" className="flex items-center gap-4">
                 <BsFillFilePdfFill />
                 <span>PDF Notes</span>
               </NavLink>

@@ -11,6 +11,7 @@
     --tertiary: #4fc194;
     --ternary: #cccccc;
     --ternary-light: rgb(153,159,187, 0.85);
+    --slate: #cbd5e1;
   }
   *{
     box-sizing: border-box;
@@ -27,7 +28,7 @@ p {
   color: var(--primary-color);
 }
 body{
-  background-color: var(--primary-light);
+  background-color: var(--slate);
 }
 a{
   text-decoration: none;
