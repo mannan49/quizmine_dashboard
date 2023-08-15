@@ -84,7 +84,7 @@ const AddMcqContent = () => {
 
   return (
     <>
-      <div className="bg-main rounded-lg px-8 py-4 max-w-full mx-auto">
+      <div className="bg-main rounded-lg px-8 py-4 w-full mx-auto">
         <h1 className="font-bold text-xl text-center">
           Enter the information of MCQ
         </h1>

@@ -8,7 +8,7 @@ const AddSkillsPage = () => {
     <>
       <div className="flex-grow flex flex-col p-4 overflow-y-auto">
         <SearchCard />
-        <div className="flex">
+        <div className="flex flex-col">
           <AddChapters />
           <AddNotes />
         </div>

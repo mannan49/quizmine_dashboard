@@ -71,7 +71,7 @@ function AddNotes() {
     setPdfFileName("");
   };
   return (
-    <div className="bg-main rounded-lg max-w-full mt-20 px-1.5 lg:px-8 py-4 m-auto">
+    <div className="bg-main rounded-lg w-full mt-4 lg:mt-20 px-4 lg:px-8 py-4 m-auto">
       <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
         <h1 className="text-primary font-bold text-center text-2xl">
           Add Notes in Database
