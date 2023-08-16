@@ -42,7 +42,7 @@ const AddMcqInformation = () => {
     }
   }, [className, subject]);
   return (
-    <div className="bg-main rounded-lg px-6 py-4 max-w-full mx-auto">
+    <div className="bg-main mb-4 rounded-lg px-6 py-4 max-w-full mx-auto">
       <div className="flex flex-col w-full">
         <h1 className="text-2xl font-bold text-center">
           Add Information of Chapter

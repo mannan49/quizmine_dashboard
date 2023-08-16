@@ -37,7 +37,7 @@ function AddChapters() {
     setChapter("");
   };
   return (
-    <div className="bg-main rounded-lg w-full mt-5 lg:mt-20 px-4 lg:px-8 py-4 m-auto">
+    <div className="bg-main rounded-2xl w-full mt-5 lg:mt-20 px-4 lg:px-8 py-4 m-auto">
       <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
         <h1 className="text-primary font-bold text-center text-2xl">
           Add Chapter in Database
@@ -72,12 +72,14 @@ function AddChapters() {
         {isLoading ? (
           <Loader />
         ) : (
-          <input
-            className="border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl"
-            type="submit"
-            value="Submit"
-            disabled={isLoading}
-          />
+          <div className="w-full border-2 border-solid rounded-full bg-primary px-4 py-1">
+            <input
+              className="w-full text-center text-main text-xl"
+              type="submit"
+              value="Submit"
+              disabled={isLoading}
+            />
+          </div>
         )}
       </form>
     </div>

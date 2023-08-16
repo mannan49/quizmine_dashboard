@@ -84,7 +84,7 @@ const AddMcqContent = () => {
 
   return (
     <>
-      <div className="bg-main rounded-lg px-8 py-4 w-full mx-auto">
+      <div className="bg-main rounded-lg px-2 lg:px-8 py-4 w-full lg:w-1/2 mx-auto">
         <h1 className="font-bold text-xl text-center">
           Enter the information of MCQ
         </h1>
@@ -101,7 +101,7 @@ const AddMcqContent = () => {
           />
         </div>
         <div className="lg:space-y-2">
-          <div className="flex flex-col lg:flex-row items-center lg:gap-2">
+          <div className="flex flex-col lg:flex-row items-center">
             <label htmlFor="optionA">Option A</label>
             <input
               type="text"
@@ -111,7 +111,7 @@ const AddMcqContent = () => {
               onChange={(e) => setOptionAstatement(e.target.value)}
             />
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:gap-2">
+          <div className="flex flex-col lg:flex-row items-center">
             <label htmlFor="optionB">Option B</label>
             <input
               type="text"
@@ -121,7 +121,7 @@ const AddMcqContent = () => {
               onChange={(e) => setOptionBstatement(e.target.value)}
             />
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:gap-2">
+          <div className="flex flex-col lg:flex-row items-center">
             <label htmlFor="optionC">Option C</label>
             <input
               type="text"
@@ -131,7 +131,7 @@ const AddMcqContent = () => {
               onChange={(e) => setOptionCstatement(e.target.value)}
             />
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:gap-2">
+          <div className="flex flex-col lg:flex-row items-center">
             <label htmlFor="optionD">Option D</label>
             <input
               type="text"

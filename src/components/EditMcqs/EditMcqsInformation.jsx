@@ -8,7 +8,7 @@ const EditMcqsInformation = () => {
     navigate("/edit-mcqs");
   };
   return (
-    <div className="bg-main rounded-lg  lg:px-8 py-4 w-fit mx-auto">
+    <div className="bg-main rounded-lg lg:px-8 py-4 w-fit mx-auto">
       <AddMcqInformation />
       <div className="w-full flex justify-center">
         <button

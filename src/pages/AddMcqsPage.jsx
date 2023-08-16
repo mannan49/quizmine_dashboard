@@ -13,7 +13,7 @@ const AddMcqsPage = () => {
       <SharedDataProvider>
         <div className="flex-grow p-4 space-y-3 overflow-y-auto">
           <SearchCard />
-          <div className="flex flex-col lg:flex-row justify-center items-center space-y-3">
+          <div className="flex flex-col items-center lg:flex-row lg:justify-around">
             <AddMcqInformation />
             <AddMcqContent />
           </div>
