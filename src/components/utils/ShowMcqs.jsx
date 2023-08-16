@@ -109,7 +109,7 @@ const ShowMcqs = () => {
     <>
       <div>
         <div className="text-center">
-          <h1 className="text-2xl text-main mb-1">
+          <h1 className="text-xl lg:text-2xl text-main mb-1 text-primary">
             Chapter#{chapterNumber + 1} MCQs: {chapter}
           </h1>
         </div>
@@ -175,7 +175,7 @@ const ShowMcqs = () => {
                     })}
                   </div>
                   <div className="w-full flex justify-center mt-4">
-                    <button className="border-2 border-solid rounded-full bg-tertiary px-4 py-1 text-main lg:text-xl w-1/2">
+                    <button className="border-2 border-solid rounded-full bg-tertiary px-4 py-1 text-main lg:text-xl w-full lg:w-1/2">
                       Correct Option : {mcq.correct_option}
                     </button>
                   </div>

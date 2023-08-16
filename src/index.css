@@ -14,17 +14,16 @@
     --slate: #cbd5e1;
   }
   *{
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
   }
 h1, h2, h3, h4, h5, h6, span,label {
-  font-family: var(--secondary-font);
   color: var(--primary);
 }
 
 p {
-  font-family: var(--primary-font);
   color: var(--primary-color);
 }
 body{
@@ -45,5 +44,15 @@ ul{
 @tailwind components;
 @tailwind utilities;
 
+
+
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+
+.app-select {
+  @apply border-ternary_light border-solid border-2 rounded-full text-xl px-8 py-1 focus:outline-none focus:border-primary
+  }
 
 

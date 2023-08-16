@@ -92,13 +92,15 @@ function LoginForm() {
           </div>
 
           <div className="mb-4">
-            <button
-              className="mt-2 border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl w-full"
-              type="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? <Loader /> : "Log In"}
-            </button>
+            <div className="bg-primary mt-2 border-2 border-solid rounded-full px-4 py-1 text-main text-xl w-full">
+              <button
+                className="text-main text-xl w-full"
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? <Loader /> : "Log In"}
+              </button>
+            </div>
           </div>
         </form>
       </div>

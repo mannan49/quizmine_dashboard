@@ -44,7 +44,7 @@ function AddChapters() {
         </h1>
         <select
           name="classes-dropdown"
-          className="border-ternary_light border-solid border-2 rounded-full text-xl px-8 py-1 focus:outline-none focus:border-primary"
+          className="app-select"
           value={className}
           onChange={(e) => setClassName(e.target.value)}
         >
@@ -54,7 +54,7 @@ function AddChapters() {
         </select>
         <select
           name="subjects-dropdown"
-          className="border-ternary_light border-solid border-2 rounded-full text-xl px-8 py-1 focus:outline-none focus:border-gray-300"
+          className="app-select"
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
         >
@@ -65,7 +65,7 @@ function AddChapters() {
         <input
           type="text"
           placeholder="Enter Chapter's Name"
-          className="border-ternary_light border-solid border-2 rounded-full px-8 py-1 focus:outline-none focus:border-gray-300"
+          className="app-select"
           value={chapter}
           onChange={(e) => setChapter(e.target.value)}
         />

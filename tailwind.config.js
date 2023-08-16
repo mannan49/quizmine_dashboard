@@ -23,6 +23,9 @@ module.exports = {
     plugins: [
       require("@tailwindcss/aspect-ratio"),
       require("@tailwindcss/forms"),
+      require("postcss-import"),
+      require("tailwindcss"),
+      require("autoprefixer"),
     ],
   },
 };
