@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { addMcq } from "../../api/McqApi";
 import { useSharedData } from "../../functions/SharedDataContext";
+import Loader from "../utils/Loader";
 
 const AddMcqContent = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [statement, setStatement] = useState("");
   const [optionAstatement, setOptionAstatement] = useState("");
   const [optionBstatement, setOptionBstatement] = useState("");
@@ -53,6 +55,7 @@ const AddMcqContent = () => {
     };
 
     try {
+      setIsLoading(true);
       const response = await addMcq(data);
       if (response.ok) {
         const { message, error_code } = await response.json();
@@ -64,6 +67,8 @@ const AddMcqContent = () => {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setIsLoading(false);
     }
 
     function clearingData() {
@@ -204,7 +209,7 @@ const AddMcqContent = () => {
             className="mt-2 border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl w-full lg:w-1/2"
             onClick={handleDone}
           >
-            Add MCQ
+            {isLoading ? <Loader /> : "Add MCQ"}
           </button>
         </div>
       </div>
