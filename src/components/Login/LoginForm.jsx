@@ -40,7 +40,7 @@ function LoginForm() {
   console.log("Handle Logout", isLogin);
 
   return (
-    <div className="px-4 grid grid-cols-1 md:grid-cols-2 overflow-hidden h-screen m bg-main">
+    <div className="px-4 lg:px-0 grid grid-cols-1 md:grid-cols-2 overflow-hidden h-screen m bg-main">
       <div className="hidden md:block">
         <img
           src="/pic-1.jpg"
@@ -51,11 +51,11 @@ function LoginForm() {
 
       <div className="flex justify-center max-h-screen">
         <form
-          className="border-primary border-solid border-2 rounded-lg h-fit my-auto px-10 py-5"
+          className="border-primary border-solid border-2 rounded-lg h-fit my-auto p-5"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-4xl text-center font-bold  mb-6">Quiz Mine</h1>
-          <h2 className="text-2xl font-bold text-center mb-4">
+          <h1 className="text-4xl text-center font-bold mb-2">Quiz Mine</h1>
+          <h2 className="text-2xl font-bold text-center mb-2">
             Welcome to Quizzes World
           </h2>
 
