@@ -111,7 +111,7 @@ const ShowMcqs = () => {
 
   return (
     <>
-      <div className="w-full bg-yellow-500">
+      <div className="lg:w-2/3 mx-auto bg-yellow-500">
         <div className="text-center">
           <h1 className="text-xl lg:text-2xl mb-1 text-primary">
             Chapter#{chapterNumber + 1} MCQs: {chapter}
@@ -127,7 +127,7 @@ const ShowMcqs = () => {
                 <>
                   <div
                     key={index}
-                    className="bg-headline block border-2 b border-primary rounded-lg px-2 lg:px-8 py-4 w-full lg:w-2/3"
+                    className="bg-headline block border-2 b border-primary rounded-lg px-2 lg:px-8 py-4 w-full"
                   >
                     <div className="flex justify-between items-center">
                       <h3 className="text-xl lg:text-2xl font-bold">

@@ -11,12 +11,12 @@ import { BiWorld } from "react-icons/bi";
 import { BsDatabaseAdd } from "react-icons/bs";
 import { useSharedData } from "../../functions/SharedDataContext";
 const Sidebar = () => {
-  const navigate = useNavigate();
   const { isLogin, setIsLogin } = useSharedData();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    // navigate("/login");
+    navigate("/login");
     // Update the login state
     setIsLogin(false);
   };

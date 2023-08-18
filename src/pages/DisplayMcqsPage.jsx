@@ -1,13 +1,17 @@
 import React from "react";
 import SearchCard from "../components/utils/SearchCard";
-import ShowMcqs from "../components/utils/ShowMcqs";
+import ShowMcqs from "./../components/utils/ShowMcqs";
 
 const DisplayMcqsPage = () => {
   return (
-    <div className="flex-grow max-w-full p-4 space-y-3 overflow-y-auto">
-      <SearchCard />
-      <ShowMcqs />
-    </div>
+    <>
+      <div className="flex-grow flex flex-col p-4 space-y-3 overflow-y-auto">
+        <SearchCard />
+        <div className="flex justify-center items-center">
+          <ShowMcqs />
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -40,7 +40,7 @@ function LoginForm() {
   console.log("Handle Logout", isLogin);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden h-screen m bg-main">
+    <div className="px-4 grid grid-cols-1 md:grid-cols-2 overflow-hidden h-screen m bg-main">
       <div className="hidden md:block">
         <img
           src="/pic-1.jpg"
