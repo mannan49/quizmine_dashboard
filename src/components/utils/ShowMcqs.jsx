@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MCQs } from "../../data/Data";
 import toast from "react-hot-toast";
 import CustomLabel from "./CustomLabel";
 import { MdModeEdit } from "react-icons/md";
