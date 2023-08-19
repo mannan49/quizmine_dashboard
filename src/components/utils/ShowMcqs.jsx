@@ -111,91 +111,91 @@ const ShowMcqs = () => {
 
   return (
     <>
-      <div className="lg:w-2/3 mx-auto bg-yellow-500">
-        <div className="text-center">
-          <h1 className="text-xl lg:text-2xl mb-1 text-primary">
-            Chapter#{chapterNumber + 1} MCQs: {chapter}
-          </h1>
-        </div>
-        <div className="flex flex-col space-y-2 justify-center items-center">
-          {isLoading ? (
-            <Loader />
-          ) : (
-            filteredMcqs.map((mcq, index) => {
-              const options = JSON.parse(mcq.options);
-              return (
-                <>
-                  <div
-                    key={index}
-                    className="bg-headline block border-2 b border-primary rounded-lg px-2 lg:px-8 py-4 w-full"
-                  >
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-xl lg:text-2xl font-bold">
-                        Question#{index + 1} of {filteredMcqs.length}
-                      </h3>
-                      <div className="flex items-center">
-                        <button
-                          type="button"
-                          className="text-2xl text-tertiary mr-3"
-                          onClick={() => {
-                            handleEdit(mcq._id);
-                          }}
-                        >
-                          <MdModeEdit />
-                        </button>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="mx-auto lg:w-2/3">
+          <div>
+            <h1 className="text-xl text-center lg:text-2xl mb-1 text-primary">
+              Chapter#{chapterNumber + 1} MCQs: {chapter}
+            </h1>
+            <div className="flex flex-col space-y-2 justify-center items-center">
+              {filteredMcqs.map((mcq, index) => {
+                const options = JSON.parse(mcq.options);
+                return (
+                  <>
+                    <div
+                      key={index}
+                      className="bg-headline block border-2 b border-primary rounded-lg px-2 lg:px-8 py-4 w-full"
+                    >
+                      <div className="flex justify-between items-center">
+                        <h3 className="text-xl lg:text-2xl font-bold">
+                          Question#{index + 1} of {filteredMcqs.length}
+                        </h3>
                         <div className="flex items-center">
-                          {isLoading ? (
-                            <Loader />
-                          ) : (
-                            <button
-                              type="button"
-                              className="text-2xl text-red-600"
-                              onClick={() => {
-                                handleDelete(mcq._id);
-                              }}
-                            >
-                              <MdDelete />
-                            </button>
-                          )}
+                          <button
+                            type="button"
+                            className="text-2xl text-tertiary mr-3"
+                            onClick={() => {
+                              handleEdit(mcq._id);
+                            }}
+                          >
+                            <MdModeEdit />
+                          </button>
+                          <div className="flex items-center">
+                            {isLoading ? (
+                              <Loader />
+                            ) : (
+                              <button
+                                type="button"
+                                className="text-2xl text-red-600"
+                                onClick={() => {
+                                  handleDelete(mcq._id);
+                                }}
+                              >
+                                <MdDelete />
+                              </button>
+                            )}
+                          </div>
                         </div>
                       </div>
+                      <p className="lg:text-2xl mb-2">{mcq.statement}</p>
+                      <div className="flex-col justify-center space-y-2">
+                        {options.map((option, index) => {
+                          return (
+                            <div className="flex">
+                              <input
+                                type="radio"
+                                name={`option${option.id}`}
+                                id={`option${option.id}`}
+                                value="A"
+                                disabled
+                                className=" bg-transparent border-none appearance-none"
+                              />
+                              <CustomLabel htmlFor={`option${option.id}`}>
+                                {option.id}.{" "}
+                                {
+                                  options.find((opt) => opt.id === option.id)
+                                    ?.value
+                                }
+                              </CustomLabel>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className="w-full flex justify-center mt-4">
+                        <button className="border-2 border-solid rounded-full bg-tertiary px-4 py-1 text-main lg:text-xl w-full lg:w-1/2">
+                          Correct Option : {mcq.correct_option}
+                        </button>
+                      </div>
                     </div>
-                    <p className="lg:text-2xl mb-2">{mcq.statement}</p>
-                    <div className="flex-col justify-center space-y-2">
-                      {options.map((option, index) => {
-                        return (
-                          <div className="flex">
-                            <input
-                              type="radio"
-                              name={`option${option.id}`}
-                              id={`option${option.id}`}
-                              value="A"
-                              disabled
-                              className=" bg-transparent border-none appearance-none"
-                            />
-                            <CustomLabel htmlFor={`option${option.id}`}>
-                              {option.id}.{" "}
-                              {
-                                options.find((opt) => opt.id === option.id)
-                                  ?.value
-                              }
-                            </CustomLabel>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <div className="w-full flex justify-center mt-4">
-                      <button className="border-2 border-solid rounded-full bg-tertiary px-4 py-1 text-main lg:text-xl w-full lg:w-1/2">
-                        Correct Option : {mcq.correct_option}
-                      </button>
-                    </div>
-                  </div>
-                </>
-              );
-            })
-          )}
+                  </>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

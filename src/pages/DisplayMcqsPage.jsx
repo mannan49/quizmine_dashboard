@@ -7,7 +7,7 @@ const DisplayMcqsPage = () => {
     <>
       <div className="flex-grow flex flex-col p-4 space-y-3 overflow-y-auto">
         <SearchCard />
-        <div className="flex justify-center items-center">
+        <div>
           <ShowMcqs />
         </div>
       </div>

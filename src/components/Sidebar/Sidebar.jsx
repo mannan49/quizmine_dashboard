@@ -7,7 +7,7 @@ import { BsPencilFill } from "react-icons/bs";
 import { BsFillFilePdfFill } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
-import { BiWorld } from "react-icons/bi";
+import { PiStudentFill } from "react-icons/pi";
 import { BsDatabaseAdd } from "react-icons/bs";
 import { useSharedData } from "../../functions/SharedDataContext";
 const Sidebar = () => {
@@ -25,7 +25,7 @@ const Sidebar = () => {
     <div className="w-1/6 h-screen bg-headline  sticky top-0  p-4 shadow-md">
       <Link to="/">
         <div className="flex items-center mb-2 ml-2">
-          <BiWorld className="text-2xl" />
+          <PiStudentFill className="text-2xl" />
           <span className="text-primary font-bold text-lg ml-2 ">Parvaz</span>
         </div>
       </Link>

@@ -204,9 +204,9 @@ const AddMcqContent = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center px-6">
           <button
-            className="text-center mt-2 border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl w-full lg:w-1/2"
+            className="text-center mt-2 border-2 border-solid rounded-full bg-primary px-4 py-1 text-main text-xl w-full"
             onClick={handleDone}
             disabled={isLoading}
           >
