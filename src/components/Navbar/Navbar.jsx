@@ -8,7 +8,7 @@ import { BsPencilFill } from "react-icons/bs";
 import { BsFillFilePdfFill } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
-import { BiWorld } from "react-icons/bi";
+import { PiStudentFill } from "react-icons/pi";
 import { BsDatabaseAdd } from "react-icons/bs";
 import { useSharedData } from "../../functions/SharedDataContext";
 
@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="absolute bg-gray-900 text-white top-0 left-0 w-full p-4">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center mb-2 ml-2">
-          <BiWorld className="text-2xl" />
+          <PiStudentFill className="text-2xl" />
           <span className="text-white font-bold text-lg ml-2 ">Parvaz</span>
         </Link>
         <div className="lg:hidden">
